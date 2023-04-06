@@ -1,6 +1,5 @@
 let formulario = document.getElementById('formulario')
 formulario.addEventListener('submit', crearObj);
-formulario.
 class persona{
     constructor(nombre,edad,dni,peso,altura,nacimiento)
     {
