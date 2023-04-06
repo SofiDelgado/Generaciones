@@ -1,5 +1,6 @@
 let formulario = document.getElementById('formulario')
 formulario.addEventListener('submit', crearObj);
+formulario.
 class persona{
     constructor(nombre,edad,dni,peso,altura,nacimiento)
     {
@@ -63,6 +64,18 @@ class persona{
             alert('Silent Generation - Rasgo : AUSTERIDAD')
         }
     }
+    mostrarInfo() {
+        document.write(`
+        <ul>
+        <li>Titulo: ${this.nombre}</li>
+        <li>Edad: ${this.edad}</li>
+        <li>DNI: ${this.dni}</li>
+        <li>Peso: ${this.peso}</li>
+        <li>Altura: ${this.altura}</li>
+        <li>Año de nacimiento: ${this.nacimiento}</li>
+        </ul>
+        `);
+      }
 }
 function crearObj (e)
 {
