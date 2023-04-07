@@ -8,7 +8,7 @@ class persona{
         this._dni = dni;
         this._peso = peso;
         this._altura = altura;
-        this._nacimiento = nacimiento;
+        this._nacimiento = new Date().getFullYear() - edad;
     }
 
     get nombre()
@@ -36,35 +36,38 @@ class persona{
       return this._nacimiento;
     }
     esMayorDeEdad (){
-        if (this.nacimiento <=2004) {
-            console.log('son menores de 18')
+        if (this.edad >=18) {
+            alert('Es mayor de edad');
+        }else
+        {
+            alert('Es menor de edad ');
         }
     }
     mostrarGeneracion()
     {
-        if(nacimiento>=1994 && nacimiento<=2010)
+        if(this.nacimiento>=1994 && this.nacimiento<=2010)
         {
             alert('Generacion Z - Rasgo : IRREVERENCIA')
         }
-        else if(nacimiento>=1981 && nacimiento<=1993)
+        else if(this.nacimiento>=1981 && this.nacimiento<=1993)
         {
             alert('Generacion Y - Rasgo : FRUSTRACION')
         }
-        else if(nacimiento>=1969 && nacimiento<=1980)
+        else if(this.nacimiento>=1969 && this.nacimiento<=1980)
         {
             alert('Generacion X - Rasgo : OBSESION POR EL EXITO')
         }
-        else if (nacimiento>=1949 && nacimiento<=1968)
+        else if (this.nacimiento>=1949 && this.nacimiento<=1968)
         {
             alert('Baby Booom - Rasgo : AMBICION')
         }
-        else if(nacimiento>=1930 && nacimiento<=1948)
+        else if(this.nacimiento>=1930 && this.nacimiento<=1948)
         {
             alert('Silent Generation - Rasgo : AUSTERIDAD')
         }
     }
     mostrarInfo() {
-        document.write(`
+        document.getElementById('mostrar').innerHTML =`
         <ul>
         <li>Titulo: ${this.nombre}</li>
         <li>Edad: ${this.edad}</li>
@@ -73,7 +76,7 @@ class persona{
         <li>Altura: ${this.altura}</li>
         <li>Año de nacimiento: ${this.nacimiento}</li>
         </ul>
-        `);
+        `;
       }
 }
 function crearObj (e)
@@ -89,14 +92,16 @@ function crearObj (e)
     let altura = document.getElementById('altura').value;
     let nacimiento = document.getElementById('nacimiento').value;
     let nuevaPersona = new persona (nombre,edad,dni,peso,altura,nacimiento)
-    /*console.log('nombre: '+nombre + '\nedad: '+edad+'\ndni: '+dni+'\npeso: '+peso+ '\naltura: '+altura+ '\nnacimiento: '+nacimiento)*/
-    /*document.write('nombre: '+nuevaPersona.nombre);
-    document.write('EDAD '+nuevaPersona.edad);
-    document.write('dni: '+nuevaPersona.dni);
-    document.write('peso: '+nuevaPersona.peso);
-    document.write('altura: '+nuevaPersona.altura);
-    document.write('nacimiento: '+nuevaPersona.nacimiento);*/
-    nuevaPersona.esMayorDeEdad();
+   
+    document.getElementById('generacion').addEventListener("click",function(){
+        nuevaPersona.mostrarGeneracion();
+    });
+    document.getElementById('mayorEdad').addEventListener("click",function(){
+        nuevaPersona.esMayorDeEdad();
+    });
+    document.getElementById('mostrarDatos').addEventListener('click', function(){
+        nuevaPersona.mostrarInfo();
+    });
 }
 
 
