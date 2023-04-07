@@ -90,7 +90,7 @@ function crearObj (e)
     let dni = document.getElementById('dni').value;
     let peso = document.getElementById('peso').value;
     let altura = document.getElementById('altura').value;
-    let nacimiento = document.getElementById('nacimiento').value;
+    
     let nuevaPersona = new persona (nombre,edad,dni,peso,altura,nacimiento)
    
     document.getElementById('generacion').addEventListener("click",function(){
